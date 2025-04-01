@@ -1,0 +1,8 @@
+<h1>Carts#show</h1>
+<p>Find me in app/views/carts/show.html.erb</p>
+
+<% @cart_products.each do |cp| %>
+  <%= cp.product.name %> <%= cp.quantity %>
+  <%= button_to "+", increment_path(cp), method: :patch %>
+  <hr>
+<% end %>

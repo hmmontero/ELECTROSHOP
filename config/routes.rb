@@ -8,4 +8,12 @@ Rails.application.routes.draw do
   get "up" => "rails/health#show", as: :rails_health_check
 
   # Defines the root path route ("/")
+
+  resources :products do
+    resources :cart_products, only: [:create, :destroy]
+  end
+
+  resources :carts, only: [:show, :update, :destroy]
+
+  patch "/cart_products/:id", to: "cart_products#increment", as: :increment
 end
