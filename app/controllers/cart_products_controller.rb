@@ -11,8 +11,9 @@ class CartProductsController < ApplicationController
       @cart_product.quantity = 1
       @cart_product.product = @product
       @cart_product.cart = current_user.cart
-      @cart_product.save
     end
+    @cart_product.price = @product.price * @cart_product.quantity
+    @cart_product.save
   end
 
   # def update

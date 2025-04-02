@@ -4,11 +4,14 @@
   <% @cart_products.each do |cp| %>
     <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">
       <span><strong><%= cp.product.name %></strong> - Cantidad: <%= cp.quantity %></span>
-      <div style="display: flex; gap: 5px;"> 
+      <div style="display: flex; gap: 5px;">
         <%= button_to "+", increment_path(cp), method: :patch, class: "btn btn-primary btn-sm" %>
         <%= button_to "-", decrement_path(cp), method: :patch, class: "btn btn-danger btn-sm" %>
       </div>
     </div>
     <hr>
   <% end %>
+<%= form_with url: cart_payments_path(@cart), method: :post do |form| %>
+<%= form.hidden_field :cart_id, value: @cart.id %>
+<%= submit_tag "Make Payment" %> <% end %>
 </div>

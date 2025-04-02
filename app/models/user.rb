@@ -7,8 +7,8 @@ class User < ApplicationRecord
 
   has_many :products, dependent: :destroy
   has_one :cart
-
-  # validates :name, :address, :phone_number, :birth_date, presence: true
+  has_many :payment
+  validates :name, :address, :phone_number, :birth_date, presence: true
   validates :email, presence: true, uniqueness: true
 
   private
