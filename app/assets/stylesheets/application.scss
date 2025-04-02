@@ -10,3 +10,22 @@
 // Your CSS partials
 @import "components/index";
 @import "pages/index";
+
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  margin: 0;
+}
+
+/* Para que el contenido principal (yield) se expanda */
+main {
+  flex: 1;
+}
+
+/* Estilos para el footer (opcional, ajusta a tus necesidades) */
+footer {
+  background-color: #f0f0f0;
+  padding: 20px;
+  text-align: center;
+}
