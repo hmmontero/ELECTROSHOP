@@ -4,7 +4,7 @@ class CartProductsController < ApplicationController
   def create
     @product = Product.find(params[:product_id])
     @cart_product = current_user.cart.cart_products.find_by(product: @product)
-    if cart_product
+    if @cart_product
       @cart_product.quantity += 1
     else
       @cart_product = CartProduct.new
