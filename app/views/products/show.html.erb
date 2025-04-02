@@ -1,6 +1,12 @@
-<h1>Products#show</h1>
-<p>Find me in app/views/products/show.html.erb</p>
+<%= link_to "<- See all products", products_path() %>
+<div class="container">
+  <h1>
+    <%= @product.name %>
+  </h1>
+    <%= @product.description %>
+    <hr>$<%= @product.price %>
+    <li><%= simple_form_for @product do |f| %></li>
+  <%= f.submit "Add to cart" %>
 
-<%= @product.name %>
-<%= @product.description %>
-<%= @product.price %>
+  <% end %>
+</div>
