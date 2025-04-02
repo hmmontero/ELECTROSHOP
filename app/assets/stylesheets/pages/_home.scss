@@ -1,1 +1,21 @@
 // Specific CSS for your home-page
+.banner {
+  width: 80%; /* Ancho del 80% del contenedor padre */
+  max-width: 1200px; /* Ancho máximo de 1200 píxeles */
+  margin: 0 auto; /* Centrar horizontalmente */
+  padding: 20px;
+  background-color: $white;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  height: 400px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.card{
+  background-color: $white;
+  width: 320px;
+  height: 320px;
+  border: 1px solid #ccc;
+}
