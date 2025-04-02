@@ -4,19 +4,20 @@
   height: 320px;
   margin: 0 auto; /* Centrar horizontalmente */
   text-align: center;
-  background-color: $white;
+  background-color: #000957;
   border: 1px solid #ccc;
   border-radius: 5px;
   align-items: center;
   display: flex;
-  justify-content: space-between;
-
+  justify-content: center;
+  color:#FFEB00;
+  margin-block: 20px;
 }
 
 .card{
   background-color: $white;
-  width: 320px;
-  height: 320px;
+  width: 350px;
+  height: 350px;
   border: 1px solid #ccc;
 }
 
@@ -27,4 +28,11 @@
   align-items: center;
   justify-content: space-between;
   margin-top: 15px;
+}
+
+.texto-card{
+  text-align: center;
+  font-size: 1.3rem;
+  font-weight: 400;
+  color: grey;
 }

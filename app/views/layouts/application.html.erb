@@ -13,8 +13,10 @@
   <body>
     <%= render "shared/navbar" %>
     <%= render "shared/flashes" %>
-    <%= console %>
-    <%= yield %>
+    <main>
+      <%= yield %>
+    </main>
+
 
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
