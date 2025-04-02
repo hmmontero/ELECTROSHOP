@@ -3,7 +3,7 @@ class CartsController < ApplicationController
 
   def show
     @cart = Cart.find(params[:id])
-    @cart_products = @cart.cart_products
+    @cart_products = @cart.cart_products.order(:created_at)
   end
 
   def update

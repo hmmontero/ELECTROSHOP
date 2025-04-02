@@ -1,8 +1,14 @@
-<h1>Carts#show</h1>
-<p>Find me in app/views/carts/show.html.erb</p>
+<h1>My Cart</h1>
 
-<% @cart_products.each do |cp| %>
-  <%= cp.product.name %> <%= cp.quantity %>
-  <%= button_to "+", increment_path(cp), method: :patch %>
-  <hr>
-<% end %>
+<div style="max-width: 600px; margin: 0 auto; padding: 20px; border: 1px solid #ccc; border-radius: 5px;">
+  <% @cart_products.each do |cp| %>
+    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">
+      <span><strong><%= cp.product.name %></strong> - Cantidad: <%= cp.quantity %></span>
+      <div style="display: flex; gap: 5px;"> 
+        <%= button_to "+", increment_path(cp), method: :patch, class: "btn btn-primary btn-sm" %>
+        <%= button_to "-", decrement_path(cp), method: :patch, class: "btn btn-danger btn-sm" %>
+      </div>
+    </div>
+    <hr>
+  <% end %>
+</div>
