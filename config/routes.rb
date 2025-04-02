@@ -15,5 +15,7 @@ Rails.application.routes.draw do
 
   resources :carts, only: [:show, :update, :destroy]
 
-  patch "/cart_products/:id", to: "cart_products#increment", as: :increment
+  patch "/cart_products/:id/increment", to: "cart_products#increment", as: :increment
+  patch "/cart_products/:id/decrement", to: "cart_products#decrement", as: :decrement
+
 end
