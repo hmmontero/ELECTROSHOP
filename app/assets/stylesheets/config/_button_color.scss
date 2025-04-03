@@ -1,0 +1,2 @@
+$theme-colors:('primary': $primary, 'success': $success);
+$theme-colors: map_merge($theme-colors, $custom-colors);
