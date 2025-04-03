@@ -13,7 +13,11 @@ class CartProductsController < ApplicationController
       @cart_product.cart = current_user.cart
     end
     @cart_product.price = @product.price * @cart_product.quantity
-    @cart_product.save
+    if @cart_product.save
+      redirect_to products_path, notice: "Product added to cart."
+    else
+      redirect_to products_path, alert: "The product could not be added to the cart."
+    end
   end
 
   # def update
