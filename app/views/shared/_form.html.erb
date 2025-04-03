@@ -1,6 +1,6 @@
 <%= simple_form_for [@user, @product] do |f| %>
   <%= f.input :name %>
   <%= f.input :description %>
-  <%= f.input :price %>
-  <%= f.submit "Post" %>
+  <%= f.input :price%>
+  <%= f.submit "Post", class: "btn button-electroshop w-80 mb-2" %>
 <% end %>

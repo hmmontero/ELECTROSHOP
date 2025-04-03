@@ -1,8 +1,8 @@
-<div class="mt-3 ms-3">
-  <%= link_to "<- Cancel/See all products", products_path(), class: "btn btn-primary border" %>
-</div>
-<div class="container mt-4">
-  <h1>Post a new product</h1>
-  <p>Remember to give a great description of your product</p>
-  <%= render "shared/form" %>
+<div class="container text-center">
+  <div style="max-width: 600px; margin: 0 auto; padding: 20px; border: 1px solid #ccc; border-radius: 5px; background-color: #000957; color:rgb(242, 242, 245);">
+      <h1 class="text-center">Post a new product</h1>
+      <p class="text-center">Remember to give a great description of your product</p>
+      <%= render "shared/form" %>
+      <%= link_to "Cancel", products_path(), class: "btn button-electroshop w-85" %>
+  </div>
 </div>
