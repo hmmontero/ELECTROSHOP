@@ -17,10 +17,10 @@
     <main>
   <div class="container mb-4">
     <%= form_with url: products_path, method: :get, class: "d-flex" do %>
-      <%= text_field_tag :query, params[:query], class: "form-control me-2", placeholder: "Buscar productos por nombre o descripción..." %>
-      <%= submit_tag "Buscar", class: "btn btn-primary me-2" %>
+      <%= text_field_tag :query, params[:query], class: "form-control me-2", placeholder: "Search products" %>
+      <%= submit_tag "Search", name: nil, class: "btn btn-primary me-2" %>
       <% if params[:query].present? %>
-        <%= link_to "Limpiar búsqueda", products_path, class: "btn btn-secondary" %>
+        <%= link_to "Clear search", products_path, class: "btn btn-secondary" %>
       <% end %>
     <% end %>
   </div>
