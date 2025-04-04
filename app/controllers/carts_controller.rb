@@ -4,6 +4,9 @@ class CartsController < ApplicationController
   def show
     @cart = Cart.find(params[:id])
     @cart_products = @cart.cart_products.order(:created_at)
+    @cart = current_user.cart
+    @cart_products = @cart.cart_products.includes(:product)
+    @total_price = @cart_products.sum { |cp| cp.product.price * cp.quantity }
   end
 
   def update
