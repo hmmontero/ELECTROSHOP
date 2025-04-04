@@ -1,0 +1,6 @@
+ <div class="container ms-5 me-5">
+    <%= form_with url: products_path, method: :get, class: "d-flex" do %>
+      <%= text_field_tag :query, params[:query], class: "form-control me-2", placeholder: "Search products" %>
+      <%= submit_tag "Search", name: nil, class: "btn btn-primary me-2" %>
+    <% end %>
+  </div>
