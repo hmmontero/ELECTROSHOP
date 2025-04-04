@@ -1,6 +1,37 @@
-<%= simple_form_for [@user, @product] do |f| %>
+<%= simple_form_for @product do |f| %>
   <%= f.input :name %>
   <%= f.input :description %>
-  <%= f.input :price%>
-  <%= f.submit "Post", class: "btn button-electroshop w-80 mb-2" %>
+  <%= f.input :price %>
+  <div>
+    <label>Imagen</label>
+    <input type="file" id="product-image-input">
+  </div>
+  <%= f.hidden_field :image_url, id: "product-image-url" %>
+  <%= f.submit "Upload" %>
 <% end %>
+
+<script>
+  document.getElementById("product-image-input").addEventListener("change", function(e) {
+    var file = e.target.files[0];
+    if (!file) return;
+
+    fetch("/uploads/sign")
+      .then(r => r.json())
+      .then(data => {
+        var fd = new FormData();
+        fd.append("file", file);
+        fd.append("api_key", data.api_key);
+        fd.append("timestamp", data.timestamp);
+        fd.append("signature", data.signature);
+
+        return fetch("https://api.cloudinary.com/v1_1/" + data.cloud_name + "/image/upload", {
+          method: "POST",
+          body: fd
+        });
+      })
+      .then(r => r.json())
+      .then(res => {
+        document.getElementById("product-image-url").value = res.secure_url;
+      });
+  });
+</script>
