@@ -1,30 +1,106 @@
-<%= link_to "<- See all products", products_path, class: "btn btn-outline-primary mb-4" %>
 
-<div class="container my-5">
-  <div class="row justify-content-center">
-    <div class="col-lg-10">
-      <div class="row align-items-center bg-light p-4 rounded shadow">
-        <div class="col-md-6 text-center mb-4 mb-md-0">
-          <% if @product.image_url.present? %>
-            <img src="<%= @product.image_url %>" alt="<%= @product.name %>" class="img-fluid rounded shadow-sm" style="max-height: 350px;">
-          <% else %>
-            <div class="text-muted">No image available</div>
-          <% end %>
-        </div>
-        <div class="col-md-6">
-          <h2 class="fw-bold text-center text-md-start"><%= @product.name %></h2>
-          <p class="text-muted text-center text-md-start mb-3"><%= @product.description %></p>
-          <h4 class="text-primary text-center text-md-start mb-4">$<%= @product.price %></h4>
+<div class="container py-5">
+  <%= link_to products_path, class: "btn btn-outline-secondary mb-4" do %>
+    <i class="bi bi-arrow-left"></i> Back to products
+  <% end %>
 
-          <div class="d-flex justify-content-center justify-content-md-start">
-            <%= simple_form_for [@product, CartProduct.new], html: { class: "w-100" } do |f| %>
-              <%= f.hidden_field :product_id, value: @product.id %>
-              <%= f.submit "🛒 Add to cart", class: "btn btn-success w-100" %>
+  <div class="row">
+    <div class="col-lg-7 mb-4">
+      <div class="bg-light p-5 rounded-3 text-center" style="min-height: 500px; display: flex; align-items: center; justify-content: center;">
+        <% if @product.image_url.present? %>
+          <%= image_tag @product.image_url, class: "img-fluid", style: "max-height: 100%; max-width: 100%; object-fit: contain;" %>
+        <% else %>
+          <div class="text-muted h-100 d-flex align-items-center justify-content-center">
+            <div>
+              <i class="bi bi-image-fill fs-1"></i>
+              <p class="mt-3">Image not available</p>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    </div>
+
+    <div class="col-lg-5">
+      <div class="card border-0 h-100">
+        <div class="card-body p-4">
+          <h1 class="card-title display-5 fw-bold mb-4"><%= @product.name %></h1>
+
+          <div class="d-flex align-items-center mb-4">
+            <h2 class="text-primary mb-0 me-3" style="font-size: 2rem;"><%= number_to_currency(@product.price) %></h2>
+            <% if @product.price > 500 %>
+              <span class="badge bg-success py-2 px-3">Free Shipping</span>
             <% end %>
           </div>
-        </div>
 
+          <div class="mb-5" style="max-width: 600px;">
+            <h3 class="h4 mb-3">Product Details</h3>
+            <p class="card-text fs-5" style="line-height: 1.8;"><%= @product.description %></p>
+          </div>
+
+          <div class="mt-auto">
+            <%= simple_form_for [@product, CartProduct.new], html: { class: "mb-4" } do |f| %>
+              <div class="row align-items-center">
+                <div class="col-md-5 mb-3 mb-md-0">
+                  <%= f.input :quantity,
+                        label: "Quantity",
+                        input_html: {
+                          value: 1,
+                          min: 1,
+                          class: "form-control form-control-lg"
+                        } %>
+                </div>
+                <div class="col-md-7">
+                  <%= f.button :submit, "Add to Cart",
+                        class: "btn btn-primary w-100 py-3 fs-5" %>
+                </div>
+              </div>
+            <% end %>
+
+            <div class="d-grid">
+              <%= link_to "Buy Now", "#", class: "btn btn-success py-3 fs-5" %>
+            </div>
+          </div>
+        </div>
+>>>>>>> master
       </div>
     </div>
   </div>
 </div>
+
+<style>
+  .bg-light {
+    background-color: #f8f9fa !important;
+    border: 1px solid #eee;
+  }
+
+  .card {
+    border-radius: 16px;
+  }
+
+  .btn-primary {
+    background-color: #3a7bd5;
+    border-color: #3a7bd5;
+    transition: all 0.3s ease;
+  }
+
+  .btn-primary:hover {
+    background-color: #2c5fb3;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(58, 123, 213, 0.3);
+  }
+
+  .btn-success {
+    background-color: #28a745;
+    transition: all 0.3s ease;
+  }
+
+  .btn-success:hover {
+    background-color: #218838;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(40, 167, 69, 0.3);
+  }
+
+  .btn-outline-secondary:hover {
+    background-color: #f8f9fa;
+  }
+</style>
