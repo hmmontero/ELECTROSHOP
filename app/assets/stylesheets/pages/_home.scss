@@ -1,4 +1,16 @@
 // Specific CSS for your home-page
+.banner-home {
+  width: 100%; /* Ocupa el 100% del ancho del contenedor padre */
+  height: 300px; /* Establece la altura en 300 píxeles */
+  overflow: hidden; /* Oculta cualquier parte de la imagen que sobresalga */
+}
+
+.banner-home img {
+  width: 100%; /* Asegura que la imagen también ocupe el 100% del ancho */
+  height: auto; /* Mantiene la proporción de la imagen */
+  display: block; /* Elimina espacios innecesarios alrededor de la imagen */
+}
+
 .banner {
   width: 80%; /* Ancho del 80% del contenedor padre */
   height: 320px;
@@ -14,11 +26,14 @@
   margin-block: 20px;
 }
 
+
+
 .card{
   background-color: $white;
-  width: 350px;
-  height: 350px;
+  width: 25%;
+  height: 400px;
   border: 1px solid #ccc;
+  margin-inline: 5px;
 }
 
 .card-container{
@@ -27,12 +42,27 @@
   width: 80%;
   align-items: center;
   justify-content: space-between;
-  margin-top: 15px;
+  margin-block: 50px;
 }
 
 .texto-card{
   text-align: center;
-  font-size: 1.3rem;
+  font-size: 1.2rem;
   font-weight: 400;
   color: rgb(185, 185, 185);
+  padding-inline: 3px;
+  margin: 0;
+}
+
+
+.price{
+  text-align: center;
+  color: #344CB7;
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin: 0;
+}
+
+.mi-boton{
+  text-align: center;
 }

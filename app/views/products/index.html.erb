@@ -1,23 +1,25 @@
-<h1>Lists available products</h1>
-<p>what are you looking for?</p>
+<%= render "shared/banner" %>
 
 <div class="container">
-  <div class="row">
-    <div class="column">
-      <ol class="row">
-        <% @products.each do |product| %>
-          <li>
-            <h3><%= product.name %></h3>
-            <% if product.image_url.present? %>
-              <img src="<%= product.image_url %>" alt="<%= product.name %>" style="max-width:150px;">
-            <% end %>
-            <%= simple_form_for [product, @cart_product] do |f| %>
-              <%= f.submit "Add to cart", class: "btn btn-primary border mt-1" %>
-              <%= link_to "See details of #{product.name}", product_path(product), class: "btn btn-primary mt-1" %>
-            <% end %>
-          </li>
-        <% end %>
-      </ol>
-    </div>
+
+  <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-4">
+    <% @products.each do |product| %>
+      <div class="col">
+        <div class="card h-100 shadow" style="width: 17rem;">
+          <div class="card-body">
+            <h5 class="card-title text-center"><%= product.name %></h5>
+            <div class="mb-3">
+              <%= simple_form_for [product, CartProduct.new],
+                  url: product_cart_products_path(product),
+                  method: :post do |f| %>
+                <%= f.submit "Add to cart",
+                class: "btn button-electroshop w-100" %>
+              <% end %>
+            </div>
+            <%= link_to "See details", product_path(product), class: "btn button-electroshop w-100" %>
+          </div>
+        </div>
+      </div>
+    <% end %>
   </div>
 </div>
