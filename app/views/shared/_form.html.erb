@@ -7,7 +7,10 @@
     <input type="file" id="product-image-input">
   </div>
   <%= f.hidden_field :image_url, id: "product-image-url" %>
-  <%= f.submit "Upload" %>
+  <div class="mt-3 mb-3">
+    <%= f.submit "Upload" %>
+  </div>
+
 <% end %>
 
 <script>

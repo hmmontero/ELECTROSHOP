@@ -1,20 +1,10 @@
 // Specific CSS for your home-page
-.banner-home {
-  width: 100%; /* Ocupa el 100% del ancho del contenedor padre */
-  height: 300px; /* Establece la altura en 300 píxeles */
-  overflow: hidden; /* Oculta cualquier parte de la imagen que sobresalga */
-}
 
-.banner-home img {
-  width: 100%; /* Asegura que la imagen también ocupe el 100% del ancho */
-  height: auto; /* Mantiene la proporción de la imagen */
-  display: block; /* Elimina espacios innecesarios alrededor de la imagen */
-}
 
 .banner {
-  width: 80%; /* Ancho del 80% del contenedor padre */
+  width: 80%;
   height: 320px;
-  margin: 0 auto; /* Centrar horizontalmente */
+  margin: 0 auto;
   text-align: center;
   background-color: #000957;
   border: 1px solid #ccc;
@@ -31,13 +21,14 @@
 .card{
   background-color: $white;
   width: 25%;
-  height: 400px;
+  height: 370px;
   border: 1px solid #ccc;
   margin-inline: 5px;
+  padding: 7px;
 }
 
 .card-container{
-  margin: 0 auto; /* Centrar horizontalmente */
+  margin: 0 auto; 
   display: flex;
   width: 80%;
   align-items: center;
@@ -47,7 +38,7 @@
 
 .texto-card{
   text-align: center;
-  font-size: 1.2rem;
+  font-size: 1rem;
   font-weight: 400;
   color: rgb(185, 185, 185);
   padding-inline: 3px;
@@ -65,4 +56,13 @@
 
 .mi-boton{
   text-align: center;
+}
+
+
+#carouselExampleCaptions {
+  height: 80vh;
+}
+#carouselExampleCaptions .carousel-item img {
+  height: 80vh;
+  object-fit: cover;
 }
